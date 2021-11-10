@@ -1,10 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import TQProjectList from "pages/project-list"
+import TQLogin from "pages/login"
 
 function App() {
   return (
     <div className="App">
+      {/* <TQProjectList></TQProjectList> */}
+      <TQLogin></TQLogin>
     </div>
   );
 }
