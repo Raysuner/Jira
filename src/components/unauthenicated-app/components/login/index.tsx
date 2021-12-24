@@ -2,7 +2,7 @@ import { FormEvent } from "react";
 import { useAuth } from "components/auth-provider";
 
 export default function Login() {
-  const { login } = useAuth()
+  const { login } = useAuth();
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const username = (event.currentTarget.elements[0] as HTMLInputElement)

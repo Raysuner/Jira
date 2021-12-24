@@ -1,13 +1,12 @@
-import React from 'react';
-
-import TQProjectList from "pages/project-list"
-import TQLogin from "pages/login"
+import AuthenicatedApp from "components/authenicated-app";
+import UnauthenicatedApp from "components/unauthenicated-app";
+import { useAuth } from "components/auth-provider";
 
 function App() {
+  const { user } = useAuth();
   return (
     <div className="App">
-      {/* <TQProjectList></TQProjectList> */}
-      <TQLogin></TQLogin>
+      {user ? <AuthenicatedApp /> : <UnauthenicatedApp />}
     </div>
   );
 }
