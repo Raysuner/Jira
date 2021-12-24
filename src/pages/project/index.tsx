@@ -4,7 +4,7 @@ import qs from "qs";
 
 import { API_URL } from "common/constants";
 import { fixParams } from "utils/fix-params";
-import { useDebounce } from "utils/hooks";
+import { useDebounce } from "hooks/useDebounce";
 import SearchBar from "./components/search-bar";
 import TableList from "./components/table-list";
 
