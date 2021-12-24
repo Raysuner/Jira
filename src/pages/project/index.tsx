@@ -19,7 +19,7 @@ export default function Project() {
       if (res.ok) {
         setUsers(await res.json());
       } else {
-        Promise.reject("users request failed");
+        Promise.reject("请求用户失败");
       }
     });
   }, []);
@@ -30,7 +30,7 @@ export default function Project() {
         if (res.ok) {
           setList(await res.json());
         } else {
-          Promise.reject("projects request error");
+          Promise.reject("请求项目失败");
         }
       }
     );

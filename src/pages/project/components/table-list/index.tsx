@@ -1,17 +1,4 @@
-import { User } from "common/interface";
-
-interface List {
-  id: string;
-  name: string;
-  personId: string;
-  organization: string;
-  created: string;
-}
-
-interface ListProps {
-  users: User[];
-  list: List[];
-}
+import { ListProps } from "common/interface";
 
 export default function TableList({ list, users }: ListProps) {
   return (

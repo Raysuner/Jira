@@ -1,6 +1,6 @@
 import { User, UserForm } from "common/interface";
 import { createContext, ReactElement, useContext, useState } from "react";
-import * as auth from "api/auth-provider";
+import * as auth from "utils/auth-provider";
 
 const AuthContext = createContext<{
   user: User | null;
