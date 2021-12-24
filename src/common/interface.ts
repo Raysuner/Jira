@@ -1,9 +1,10 @@
 export interface User {
-  id: string
-  name: string
+  id: string;
+  name: string;
+  token: string;
 }
 
 export interface UserForm {
-  username: string,
-  password: string
+  username: string;
+  password: string;
 }
