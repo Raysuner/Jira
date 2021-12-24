@@ -22,3 +22,7 @@ export interface ListProps {
   list: List[];
 }
 
+export interface RequestConfig extends RequestInit {
+  data?: object
+  token?: string
+}
