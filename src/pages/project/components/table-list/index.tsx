@@ -1,4 +1,4 @@
-import { ListProps } from "common/interface";
+import { ListProps } from 'common/interface'
 
 export default function TableList({ list, users }: ListProps) {
   return (
@@ -16,12 +16,12 @@ export default function TableList({ list, users }: ListProps) {
               <td>{item.name}</td>
               <td>
                 {users.find((user) => user.id === item.personId)?.name ||
-                  "未知"}
+                  '未知'}
               </td>
             </tr>
-          );
+          )
         })}
       </tbody>
     </table>
-  );
+  )
 }
