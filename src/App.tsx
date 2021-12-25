@@ -1,6 +1,6 @@
-import AuthenicatedApp from 'components/authenicated-app'
-import UnauthenicatedApp from 'components/unauthenicated-app'
-import { useAuth } from 'components/auth-provider'
+import AuthenicatedApp from 'components/AuthenicatedApp'
+import UnauthenicatedApp from 'components/UnauthenicatedApp'
+import { useAuth } from 'components/AuthProvider'
 
 function App() {
   const { user } = useAuth()

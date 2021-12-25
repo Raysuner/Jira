@@ -1,5 +1,5 @@
-import Project from 'pages/project'
-import { useAuth } from 'components/auth-provider'
+import Project from 'pages/Project'
+import { useAuth } from 'components/AuthProvider'
 
 export default function AuthenicatedApp() {
   const { logout } = useAuth()

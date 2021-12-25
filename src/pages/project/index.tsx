@@ -1,37 +1,26 @@
 import { useEffect, useState } from 'react'
 
-import qs from 'qs'
-
-import { API_URL } from 'common/constants'
 import { fixParams } from 'utils/fix-params'
 import { useDebounce } from 'hooks/useDebounce'
-import SearchBar from './components/search-bar'
-import TableList from './components/table-list'
+import { useMount } from 'hooks/useMount'
+import { useRequest } from 'hooks/useRequest'
+import SearchBar from './components/SearchBar'
+import TableList from './components/TableList'
 
 export default function Project() {
   const [users, setUsers] = useState([])
   const [param, setParam] = useState({ name: '', personId: '' })
   const [list, setList] = useState([])
   const debouceParams = useDebounce(param, 200)
+  const requestClient = useRequest()
+
+  useMount(() => {
+    requestClient('users').then(setUsers)
+  })
 
   useEffect(() => {
-    fetch(`${API_URL}/users`).then(async (res) => {
-      if (res.ok) {
-        setUsers(await res.json())
-      }
-    })
-  }, [])
-
-  useEffect(() => {
-    fetch(`${API_URL}/projects?${qs.stringify(fixParams(debouceParams))}`).then(
-      async (res) => {
-        if (res.ok) {
-          setList(await res.json())
-        } else {
-          Promise.reject('请求项目失败')
-        }
-      }
-    )
+    console.log('request projects')
+    requestClient('projects', { data: fixParams(debouceParams) }).then(setList)
   }, [debouceParams])
 
   return (

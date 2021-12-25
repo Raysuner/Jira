@@ -1,0 +1,9 @@
+@import 'normalize.css';
+
+html {
+  font-size: 62.5%;
+}
+
+.App {
+  min-height: 100vh;
+}

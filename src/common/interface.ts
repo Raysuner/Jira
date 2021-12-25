@@ -9,7 +9,7 @@ export interface UserForm {
   password: string
 }
 
-export interface List {
+export interface Project {
   id: string
   name: string
   personId: string
@@ -17,9 +17,9 @@ export interface List {
   created: string
 }
 
-export interface ListProps {
+export interface ProjectList {
   users: User[]
-  list: List[]
+  list: Project[]
 }
 
 export interface RequestConfig extends RequestInit {
