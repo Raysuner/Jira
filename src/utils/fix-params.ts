@@ -1,10 +1,10 @@
-export function fixParams(params: object) {
+const isVoid = (value: unknown) => value === null || value === undefined || value === ''
+
+export function fixParams(params: {[key: string]: unknown}) {
   const cloneParams = { ...params }
   for (const key in cloneParams) {
     if (cloneParams.hasOwnProperty(key)) {
-      // @ts-ignore
-      if (cloneParams[key] !== 0 && !cloneParams[key]) {
-        // @ts-ignore
+      if (isVoid(cloneParams[key])) {
         delete cloneParams[key]
       }
     }

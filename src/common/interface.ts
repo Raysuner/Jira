@@ -1,3 +1,5 @@
+import { TableProps } from "antd";
+
 export interface User {
   id: string
   name: string
@@ -17,12 +19,11 @@ export interface Project {
   created: string
 }
 
-export interface ProjectList {
+export interface ProjectList extends TableProps<Project>{
   users: User[]
-  list: Project[]
 }
 
 export interface RequestConfig extends RequestInit {
-  data?: object
+  data?: { [key: string]: unknown }
   token?: string
 }

@@ -17,9 +17,9 @@ export default function UnauthenicatedApp() {
       <ShadowCard>
         {isLogin ? <Login /> : <Register />}
         <Divider />
-        <a href='javascript: void(0);' onClick={() => setIsLogin(!isLogin)}>
+        <Button type="link" onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? '没有账号?去注册' : '已经有帐号了?直接登录'}
-        </a>
+        </Button>
       </ShadowCard>
       <Background />
     </Container>

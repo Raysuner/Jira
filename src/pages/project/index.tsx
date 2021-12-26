@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar'
 import TableList from './components/TableList'
 
 export default function Project() {
+  const [loading, setLoading] = useState(false)
   const [users, setUsers] = useState([])
   const [param, setParam] = useState({ name: '', personId: '' })
   const [list, setList] = useState([])
@@ -20,14 +21,17 @@ export default function Project() {
 
   useEffect(() => {
     console.log('request projects')
-    requestClient('projects', { data: fixParams(debouceParams) }).then(setList)
+    setLoading(true)
+    requestClient('projects', { data: fixParams(debouceParams) })
+      .then(setList)
+      .finally(() => setLoading(false))
   }, [debouceParams])
 
   return (
     <>
       <h2>项目列表</h2>
       <SearchBar param={param} setParam={setParam} users={users}></SearchBar>
-      <TableList list={list} users={users}></TableList>
+      <TableList loading={loading} dataSource={list} users={users}></TableList>
     </>
   )
 }

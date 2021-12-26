@@ -1,7 +1,7 @@
 import {ReactComponent as SoftwareLogo} from "assets/img/software-logo.svg"
 
 import styled from '@emotion/styled'
-import { Dropdown, Menu } from "antd"
+import { Button, Dropdown, Menu } from "antd"
 
 import Project from 'pages/Project'
 import { useAuth } from 'context/AuthProvider'
@@ -21,10 +21,10 @@ export default function AuthenicatedApp() {
           <Dropdown overlay={
             <Menu>
               <Menu.Item>
-                <a onClick={logout}>登出</a>
+                <Button type="link" onClick={logout}>登出</Button>
               </Menu.Item>
             </Menu>}>
-            <a onClick={e => e.preventDefault()}>Hi, { user?.name }</a>
+            <Button type="link" onClick={e => e.preventDefault()}>Hi, { user?.name }</Button>
           </Dropdown>
         </HeaderRight>
       </Header>

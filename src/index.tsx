@@ -1,15 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import { loadDevTools } from 'jira-dev-tool'
+import { loadServer, DevTools } from 'jira-dev-tool'
 import AuthProvider from 'context/AuthProvider'
 import './App.css'
 import 'antd/dist/antd.less'
 // import reportWebVitals from './reportWebVitals';
 
-loadDevTools(() =>
+loadServer(() =>
   ReactDOM.render(
     <React.StrictMode>
+      <DevTools />
       <AuthProvider>
         <App />
       </AuthProvider>

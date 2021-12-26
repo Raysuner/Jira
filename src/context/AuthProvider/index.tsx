@@ -4,6 +4,7 @@ import { request } from 'utils/request'
 import { User, UserForm } from 'common/interface'
 import { useMount } from 'hooks/useMount'
 import * as auth from 'utils/auth-provider'
+import { QueryClient, QueryClientProvider } from "react-query"
 
 const AuthContext = createContext<{
   user: User | null
@@ -36,10 +37,12 @@ export default function AuthProvider({ children }: { children: ReactElement }) {
   })
 
   return (
-    <AuthContext.Provider
-      value={{ user, login, register, logout }}
-      children={children}
-    ></AuthContext.Provider>
+    <QueryClientProvider client={new QueryClient()}>
+      <AuthContext.Provider
+        value={{ user, login, register, logout }}
+        children={children}
+      ></AuthContext.Provider>
+    </QueryClientProvider>
   )
 }
 

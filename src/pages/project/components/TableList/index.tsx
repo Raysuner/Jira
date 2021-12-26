@@ -3,7 +3,7 @@ import { Table } from 'antd'
 
 import { ProjectList } from 'common/interface'
 
-export default function TableList({ list, users }: ProjectList) {
+export default function TableList({ users, ...props }: ProjectList) {
   return (
     <Table
       rowKey={(project) => project.id}
@@ -41,7 +41,7 @@ export default function TableList({ list, users }: ProjectList) {
           }
         }
       ]}
-      dataSource={list}
+      {...props}
     />
   )
 }
