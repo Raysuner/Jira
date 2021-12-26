@@ -1,6 +1,7 @@
-const isVoid = (value: unknown) => value === null || value === undefined || value === ''
+const isVoid = (value: unknown) =>
+  value === null || value === undefined || value === ''
 
-export function fixParams(params: {[key: string]: unknown}) {
+export function fixParams(params: { [key: string]: unknown }) {
   const cloneParams = { ...params }
   for (const key in cloneParams) {
     if (cloneParams.hasOwnProperty(key)) {
