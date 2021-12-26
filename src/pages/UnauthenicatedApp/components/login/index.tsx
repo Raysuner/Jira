@@ -1,12 +1,13 @@
 import { Button, Form, Input } from 'antd'
 
-import { useAuth } from 'components/AuthProvider'
+import { useAuth } from 'context/AuthProvider'
 import { UserForm } from 'common/interface'
+import { LongButton } from "pages/UnauthenicatedApp"
 
-export default function Register() {
-  const { register } = useAuth()
+export default function Login() {
+  const { login } = useAuth()
   const handleSubmit = (values: UserForm) => {
-    register(values)
+    login(values)
   }
   return (
     <Form onFinish={handleSubmit}>
@@ -23,9 +24,9 @@ export default function Register() {
         <Input type='password' placeholder='密码' />
       </Form.Item>
       <Form.Item>
-        <Button htmlType='submit' type='primary'>
-          注册
-        </Button>
+        <LongButton htmlType='submit' type='primary'>
+          登录
+        </LongButton>
       </Form.Item>
     </Form>
   )

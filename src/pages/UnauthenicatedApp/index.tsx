@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Card, Divider } from 'antd'
+import { Button, Card, Divider } from 'antd'
 import styled from '@emotion/styled'
 
 import Login from './components/login'
@@ -12,12 +12,12 @@ import rightImage from 'assets/img/right.svg'
 export default function UnauthenicatedApp() {
   const [isLogin, setIsLogin] = useState<boolean>(true)
   return (
-    <Container className='card'>
+    <Container>
       <Header />
       <ShadowCard>
         {isLogin ? <Login /> : <Register />}
         <Divider />
-        <a href='javascript: void(0)' onClick={() => setIsLogin(!isLogin)}>
+        <a href='javascript: void(0);' onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? '没有账号?去注册' : '已经有帐号了?直接登录'}
         </a>
       </ShadowCard>
@@ -59,4 +59,8 @@ const ShadowCard = styled(Card)`
   text-align: center;
   border-radius: 0.3rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px;
+`
+
+export const LongButton = styled(Button)`
+  width: 100%;
 `

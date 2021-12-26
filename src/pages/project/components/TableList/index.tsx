@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { Table } from 'antd'
 
 import { ProjectList } from 'common/interface'
@@ -13,6 +14,10 @@ export default function TableList({ list, users }: ProjectList) {
           sorter: (a, b) => a.name.localeCompare(b.name),
         },
         {
+          title: '部门',
+          dataIndex: 'organization'
+        },
+        {
           title: '负责人',
           render(_, project) {
             return (
@@ -23,6 +28,18 @@ export default function TableList({ list, users }: ProjectList) {
             )
           },
         },
+        {
+          title: '创建时间',
+          render(_, project) {
+            return (
+              <span>
+                {
+                  project.created ? dayjs(project.created).format('YYYY-MM-DD') : '未知'
+                }
+              </span>
+            )
+          }
+        }
       ]}
       dataSource={list}
     />

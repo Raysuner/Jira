@@ -1,5 +1,5 @@
 import { request } from 'utils/request'
-import { useAuth } from 'components/AuthProvider'
+import { useAuth } from 'context/AuthProvider'
 
 export const useRequest = () => {
   const { user } = useAuth()
