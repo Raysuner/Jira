@@ -1,6 +1,6 @@
-import { RequestConfig } from 'common/interface'
 import { logout } from './auth-provider'
 import { API_URL } from 'common/constants'
+import { RequestConfig } from 'common/interface'
 import qs from 'qs'
 
 export const request = async (
