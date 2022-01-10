@@ -25,6 +25,7 @@ export default function Project() {
     requestClient('projects', { data: fixParams(debouceParams) })
       .then(setList)
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouceParams])
 
   return (
