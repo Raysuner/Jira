@@ -31,7 +31,7 @@ export const login = async (user: UserForm) => {
   if (res.ok) {
     return handleResponse(await res.json())
   } else {
-    return Promise.reject(res)
+    return Promise.reject(await res.json())
   }
 }
 
@@ -46,7 +46,7 @@ export const register = async (user: UserForm) => {
   if (res.ok) {
     return handleResponse(await res.json())
   } else {
-    return Promise.reject(res)
+    return Promise.reject(await res.json())
   }
 }
 

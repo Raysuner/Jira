@@ -2,7 +2,7 @@ import { Form, Input, Select } from 'antd'
 import { User } from 'common/interface'
 
 interface InputProps {
-  users: User[]
+  userList: User[]
   param: {
     name: string
     personId: string
@@ -10,7 +10,7 @@ interface InputProps {
   setParam: (param: InputProps['param']) => void
 }
 
-export default function SearchBar({ param, setParam, users }: InputProps) {
+export default function SearchBar({ param, setParam, userList }: InputProps) {
   return (
     <Form layout="inline" style={{marginBottom: '2rem'}}>
       <Form.Item>
@@ -37,7 +37,7 @@ export default function SearchBar({ param, setParam, users }: InputProps) {
           }
         >
           <Select.Option value=''>负责人</Select.Option>
-          {users.map((user) => {
+          {userList.map((user) => {
             return (
               <Select.Option value={user.id} key={user.id}>
                 {user.name}

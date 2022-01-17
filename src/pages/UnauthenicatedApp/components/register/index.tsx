@@ -3,11 +3,13 @@ import { Form, Input } from 'antd'
 import { useAuth } from 'context/AuthProvider'
 import { UserForm } from 'common/interface'
 import { LongButton } from "pages/UnauthenicatedApp"
+import { useAsync } from "hooks/useAsync"
 
-export default function Register() {
+export default function Register({setError}: {setError: (error: Error) => void}) {
   const { register } = useAuth()
+  const { status, run } = useAsync(undefined, {throwError: true})
   const handleSubmit = (values: UserForm) => {
-    register(values)
+    run(register(values)).catch(setError)
   }
   return (
     <Form onFinish={handleSubmit}>
@@ -24,7 +26,7 @@ export default function Register() {
         <Input type='password' placeholder='密码' />
       </Form.Item>
       <Form.Item>
-        <LongButton htmlType='submit' type='primary'>
+        <LongButton loading={status === 'pending'} htmlType='submit' type='primary'>
           注册
         </LongButton>
       </Form.Item>

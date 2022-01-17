@@ -1,4 +1,4 @@
-import { logout } from './auth-provider'
+import { logout } from './authProvider'
 import { API_URL } from 'common/constants'
 import { RequestConfig } from 'common/interface'
 import qs from 'qs'

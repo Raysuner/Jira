@@ -20,10 +20,16 @@ export interface Project {
 }
 
 export interface ProjectList extends TableProps<Project>{
-  users: User[]
+  userList: User[]
 }
 
 export interface RequestConfig extends RequestInit {
   data?: { [key: string]: unknown }
   token?: string
+}
+
+export interface State<T> {
+  error: Error | null
+  data: T | null
+  status: 'idle' | 'pending' | 'error' | 'success'
 }

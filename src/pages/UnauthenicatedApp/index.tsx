@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Card, Divider } from 'antd'
+import { Button, Card, Divider, Typography } from 'antd'
 import styled from '@emotion/styled'
 
 import Login from './components/login'
@@ -11,11 +11,13 @@ import rightImage from 'assets/img/right.svg'
 
 export default function UnauthenicatedApp() {
   const [isLogin, setIsLogin] = useState<boolean>(true)
+  const [error, setError] = useState<Error | null>()
   return (
     <Container>
       <Header />
       <ShadowCard>
-        {isLogin ? <Login /> : <Register />}
+        {error && <Typography.Text type="danger">{error.message}</Typography.Text>}
+        {isLogin ? <Login setError={ setError } /> : <Register setError={ setError } />}
         <Divider />
         <Button type="link" onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? '没有账号?去注册' : '已经有帐号了?直接登录'}

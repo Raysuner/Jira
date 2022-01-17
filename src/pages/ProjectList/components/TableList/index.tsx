@@ -3,7 +3,7 @@ import { Table } from 'antd'
 
 import { ProjectList } from 'common/interface'
 
-export default function TableList({ users, ...props }: ProjectList) {
+export default function TableList({ userList, ...props }: ProjectList) {
   return (
     <Table
       rowKey={(project) => project.id}
@@ -22,7 +22,7 @@ export default function TableList({ users, ...props }: ProjectList) {
           render(_, project) {
             return (
               <span>
-                {users.find((user) => user.id === project.personId)?.name ||
+                {userList.find((user) => user.id === project.personId)?.name ||
                   '未知'}
               </span>
             )

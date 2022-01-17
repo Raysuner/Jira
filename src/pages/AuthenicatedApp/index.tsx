@@ -3,7 +3,7 @@ import {ReactComponent as SoftwareLogo} from "assets/img/software-logo.svg"
 import styled from '@emotion/styled'
 import { Button, Dropdown, Menu } from "antd"
 
-import Project from 'pages/Project'
+import ProjectList from 'pages/ProjectList'
 import { useAuth } from 'context/AuthProvider'
 import { Row } from "components/Row"
 
@@ -28,7 +28,7 @@ export default function AuthenicatedApp() {
           </Dropdown>
         </HeaderRight>
       </Header>
-      <Project />
+      <ProjectList />
     </Container>
   )
 }
