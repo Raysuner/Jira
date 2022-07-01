@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export function useDocumentTitle (title: string, keepLive = false) {
-
-  const oldTitle = document.title
+  const oldTitleRef = useRef<string>(document.title)
+  const oldTitle = oldTitleRef.current
   useEffect(() => {
     document.title = title
   }, [title])
